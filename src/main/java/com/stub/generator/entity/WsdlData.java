@@ -2,34 +2,26 @@ package com.stub.generator.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
+@NoArgsConstructor
 @Setter
-public class WsdlEndpoint {
-
+@Getter
+public class WsdlData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String endpoint;
     private String operation;
-    private String schema;
-    private String requestPayload;
+    private String requestSchema;
     private String responsePayload;
 
-    // Constructors, getters, and setters
+    // REST-specific fields
+    private String httpMethod;
+    private String urlPath;
+    private String headers;
 
-    public WsdlEndpoint() {}
-
-    public WsdlEndpoint(String endpoint, String operation, String schema, String requestPayload, String responsePayload) {
-        this.endpoint = endpoint;
-        this.operation = operation;
-        this.schema = schema;
-        this.requestPayload = requestPayload;
-        this.responsePayload = responsePayload;
-    }
-
-    // Getters and setters here...
+    // Constructors, Getters, and Setters
 }
